@@ -24,8 +24,6 @@ modules:
       - QT_SELECT=qt5 qmake
       - make
       - install -Dm755 -t /app/bin cutentr
-      # AppStream metainfo
-      #- install -Dm644 -t /app/share/metainfo com.github.b3nj5m1n.xdg-ninja.appdata.xml
       # Desktop entry
       - install -Dm644 -t /app/share/applications setup/gui/com.gitlab.BoltsJ.cuteNTR.desktop
       # App icon
@@ -35,9 +33,3 @@ modules:
       - type: git
         url: https://gitlab.com/BoltsJ/cuteNTR.git
         tag: 0.3.3
-      # AppStream metainfo
-      #- type: file
-      #  path: com.github.b3nj5m1n.xdg-ninja.appdata.xml
-      # Desktop entry
-      #- type: file
-      #  path: com.github.b3nj5m1n.xdg-ninja.desktop
