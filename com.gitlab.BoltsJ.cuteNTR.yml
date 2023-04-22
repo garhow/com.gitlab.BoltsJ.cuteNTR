@@ -24,12 +24,9 @@ modules:
       - QT_SELECT=qt5 qmake
       - make
       - install -Dm755 -t /app/bin cutentr
-      # Desktop entry
       - install -Dm644 -t /app/share/applications setup/gui/com.gitlab.BoltsJ.cuteNTR.desktop
-      # App icon
       - install -Dm644 -t /app/share/icons/hicolor/scalable/apps setup/gui/com.gitlab.BoltsJ.cuteNTR.svg      
     sources:
-      # cuteNTR
       - type: git
         url: https://gitlab.com/BoltsJ/cuteNTR.git
         tag: 0.3.3
