@@ -1,0 +1,43 @@
+app-id: com.gitlab.BoltsJ.cuteNTR
+
+runtime: org.kde.Platform
+runtime-version: '5.15-22.08'
+
+sdk: org.kde.Sdk
+
+command: cutentr
+
+finish-args:
+  # Network access
+  - --share=network
+  # X11 windowing system
+  - --socket=x11
+  # Wayland windowing system
+  - --socket=wayland
+  # PulseAudio sound server
+  - --socket=pulseaudio
+
+modules:
+  - name: cuteNTR
+    buildsystem: simple
+    build-commands:
+      - QT_SELECT=qt5 qmake
+      - make
+      - install -Dm755 -t /app/bin cutentr
+      # AppStream metainfo
+      #- install -Dm644 -t /app/share/metainfo com.github.b3nj5m1n.xdg-ninja.appdata.xml
+      # Desktop entry
+      - install -Dm644 -t /app/share/applications setup/gui/com.gitlab.BoltsJ.cuteNTR.desktop
+      # App icon
+      - install -Dm644 -t /app/share/icons/hicolor/scalable/apps setup/gui/com.gitlab.BoltsJ.cuteNTR.svg      
+    sources:
+      # cuteNTR
+      - type: git
+        url: https://gitlab.com/BoltsJ/cuteNTR.git
+        tag: 0.3.3
+      # AppStream metainfo
+      #- type: file
+      #  path: com.github.b3nj5m1n.xdg-ninja.appdata.xml
+      # Desktop entry
+      #- type: file
+      #  path: com.github.b3nj5m1n.xdg-ninja.desktop
